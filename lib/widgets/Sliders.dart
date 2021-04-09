@@ -5,6 +5,7 @@ import 'package:flutter_xlider/flutter_xlider.dart';
 
 class Sliders extends StatelessWidget {
   final List<FlutterSliderHatchMarkLabel> labels;
+  final List<FlutterSliderRangeStep> rangeList;
   final double min;
   final double max;
   final double amount;
@@ -15,6 +16,7 @@ class Sliders extends StatelessWidget {
     this.max,
     this.min,
     this.labels,
+    this.rangeList,
   });
 
   @override
@@ -59,6 +61,9 @@ class Sliders extends StatelessWidget {
             stops: [0, 1],
           ),
         ),
+      ),
+      step: FlutterSliderStep(
+        rangeList: rangeList,
       ),
     );
   }

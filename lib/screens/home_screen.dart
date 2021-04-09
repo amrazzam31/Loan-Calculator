@@ -12,38 +12,37 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  double loanAmount = 12000;
-  double loanTerm = 24;
-  double score = 760;
+  int loanAmount = 12000;
+  int loanTerm = 24;
+  int score = 760;
   double result = 30.00;
 
-  double calculateLoanAmount(
+  int calculateLoanAmount(
       int handlerIndex, dynamic lowerValue, dynamic upperValue) {
     setState(() {
-      loanAmount = lowerValue;
+      loanAmount = lowerValue.toInt();
     });
     return loanAmount;
   }
 
-  double calculateLoanTerm(
+  int calculateLoanTerm(
       int handlerIndex, dynamic lowerValue, dynamic upperValue) {
     setState(() {
-      loanTerm = lowerValue;
+      loanTerm = lowerValue.toInt();
     });
     return loanTerm;
   }
 
-  double calculateScore(
-      int handlerIndex, dynamic lowerValue, dynamic upperValue) {
+  int calculateScore(int handlerIndex, dynamic lowerValue, dynamic upperValue) {
     setState(() {
-      score = lowerValue;
+      score = lowerValue.toInt();
     });
     return score;
   }
 
   String calculatePayment() {
     result = loanAmount * (0.06 / loanTerm);
-    return result.toStringAsFixed(2);
+    return result.toString();
   }
 
   @override
@@ -180,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
             min: 0,
             labels: [
               FlutterSliderHatchMarkLabel(
-                  percent: 1, label: Txt(title: '-', size: 20, colour: grey)),
+                  percent: 0, label: Txt(title: '-', size: 20, colour: grey)),
               FlutterSliderHatchMarkLabel(
                   percent: 20, label: Txt(title: '12', colour: grey)),
               FlutterSliderHatchMarkLabel(
@@ -190,7 +189,14 @@ class _HomeScreenState extends State<HomeScreen> {
               FlutterSliderHatchMarkLabel(
                   percent: 80, label: Txt(title: '48', colour: grey)),
               FlutterSliderHatchMarkLabel(
-                  percent: 97, label: Txt(title: '60', colour: grey)),
+                  percent: 100, label: Txt(title: '60', colour: grey)),
+            ],
+            rangeList: [
+              FlutterSliderRangeStep(from: 0, to: 20, step: 12),
+              FlutterSliderRangeStep(from: 20, to: 40, step: 12),
+              FlutterSliderRangeStep(from: 40, to: 60, step: 12),
+              FlutterSliderRangeStep(from: 60, to: 80, step: 12),
+              FlutterSliderRangeStep(from: 80, to: 100, step: 12),
             ],
           ),
           Padding(
@@ -219,24 +225,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 ]),
           ),
           Sliders(
-              amount: score.toDouble(),
-              calculate: calculateScore,
-              max: 800,
-              min: 0,
-              labels: [
-                FlutterSliderHatchMarkLabel(
-                    percent: 1, label: Txt(title: '-', size: 20, colour: grey)),
-                FlutterSliderHatchMarkLabel(
-                    percent: 20, label: Txt(title: '<579', colour: grey)),
-                FlutterSliderHatchMarkLabel(
-                    percent: 40, label: Txt(title: '580', colour: grey)),
-                FlutterSliderHatchMarkLabel(
-                    percent: 60, label: Txt(title: '670', colour: grey)),
-                FlutterSliderHatchMarkLabel(
-                    percent: 80, label: Txt(title: '740', colour: grey)),
-                FlutterSliderHatchMarkLabel(
-                    percent: 98, label: Txt(title: '800+', colour: grey)),
-              ]),
+            amount: score.toDouble(),
+            calculate: calculateScore,
+            max: 850,
+            min: 100,
+            labels: [
+              FlutterSliderHatchMarkLabel(
+                  percent: 0, label: Txt(title: '-', size: 20, colour: grey)),
+              FlutterSliderHatchMarkLabel(
+                  percent: 20, label: Txt(title: '<579', colour: grey)),
+              FlutterSliderHatchMarkLabel(
+                  percent: 40, label: Txt(title: '580', colour: grey)),
+              FlutterSliderHatchMarkLabel(
+                  percent: 60, label: Txt(title: '670', colour: grey)),
+              FlutterSliderHatchMarkLabel(
+                  percent: 80, label: Txt(title: '740', colour: grey)),
+              FlutterSliderHatchMarkLabel(
+                  percent: 100, label: Txt(title: '800+', colour: grey)),
+            ],
+          ),
           SizedBox(height: 12),
         ]),
       ),
