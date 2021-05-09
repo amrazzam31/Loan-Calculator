@@ -1,16 +1,15 @@
-# loan_calculator
+# Loan Calculator App
 
-A new Flutter project.
+#### This app is made by using the Flutter framework. It's a mobile app to determine the monthly payments on a loan.
 
-## Getting Started
+# Preview
 
-This project is a starting point for a Flutter application.
+![loan_calculator](https://user-images.githubusercontent.com/76887699/117571395-a6048e00-b0ce-11eb-91e7-cbde78107af4.gif)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+# Dependencies
+. Flutter_xlider
+                                                                                                                               
+
